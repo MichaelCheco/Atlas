@@ -4,7 +4,7 @@ import {
 	logoutCurrentUser,
 	getCurrentUser,
 	hasLoggedInUser,
-} from '../../stitch';
+} from '../stitch';
 
 function authReducer(state, action) {
 	switch (action.type) {
