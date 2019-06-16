@@ -2,23 +2,15 @@ import React from 'react';
 import './App.css';
 import { useStitchStateAuth } from './context/auth-context';
 function App() {
-	const { isLoggedIn } = useStitchStateAuth();
+	const { isLoggedIn, handleAnonymousLogin } = useStitchStateAuth();
 	return isLoggedIn ? <AuthenticatedApp /> : <UnAuthenticatedApp />;
 }
 function UnAuthenticatedApp() {
+	const { handleAnonymousLogin } = useStitchStateAuth();
 	return (
 		<div className="App">
 			<header className="App-header">
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer">
-					Learn React
-				</a>
+				<button onClick={handleAnonymousLogin}>Anonymous Login</button>
 			</header>
 		</div>
 	);
