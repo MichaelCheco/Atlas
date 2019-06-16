@@ -1,22 +1,10 @@
 import React from 'react';
-import './App.css';
 import { useStitchStateAuth } from './context/auth-context';
+import AuthenticatedApp from './authenticated-app';
+import UnAuthenticatedApp from './unauthenticated-app';
 function App() {
-	const { isLoggedIn, handleAnonymousLogin } = useStitchStateAuth();
+	const { isLoggedIn } = useStitchStateAuth();
 	return isLoggedIn ? <AuthenticatedApp /> : <UnAuthenticatedApp />;
-}
-function UnAuthenticatedApp() {
-	const { handleAnonymousLogin } = useStitchStateAuth();
-	return (
-		<div className="App">
-			<header className="App-header">
-				<button onClick={handleAnonymousLogin}>Anonymous Login</button>
-			</header>
-		</div>
-	);
-}
-function AuthenticatedApp() {
-	return <p>Authenticated!</p>;
 }
 
 export default App;
